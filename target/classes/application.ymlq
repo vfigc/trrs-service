@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: trrs-service
+  datasource:
+    url: jdbc:postgresql://vf-inthub-dev-db.c9yky2kw470b.eu-west-1.rds.amazonaws.com:5432/vfi_inthub_dev
+    driver-class-name: org.postgresql.Driver
+    username: app_user
+    password: AppUserIntHub
+  jpa:
+    properties:
+      hibernate:
+        default_schema: trrs
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: always
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+internal-auth:
+  secret: "nbBYOeweRHIhyLtjRGfA0gUUBwENJ+hCdrBs8JmEo9A="
