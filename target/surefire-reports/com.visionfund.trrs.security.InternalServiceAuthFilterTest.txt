@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.visionfund.trrs.security.InternalServiceAuthFilterTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.270 s -- in com.visionfund.trrs.security.InternalServiceAuthFilterTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.162 s -- in com.visionfund.trrs.security.InternalServiceAuthFilterTest

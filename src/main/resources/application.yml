@@ -1,5 +1,7 @@
 server:
   port: 8081
+aws:
+  region: eu-west-1
 spring:
   application:
     name: trrs-service
@@ -31,4 +33,9 @@ management:
     readinessstate:
       enabled: true
 internal-auth:
-  secret: "nbBYOeweRHIhyLtjRGfA0gUUBwENJ+hCdrBs8JmEo9A="
+  # {algorithm, activeKid, previousKid, keys: {kid: base64 HMAC key}} - the SAME Secrets Manager
+  # secret integration-layer's InternalServiceTokenIssuer signs with, so both sides always agree
+  # on the current key(s) without a manually-synchronized deployment. Resolved once at startup by
+  # InternalServiceAuthFilter; every kid present in the secret's keys map is accepted, so adding a
+  # new kid ahead of integration-layer's own rotation is always safe.
+  secret-arn: "arn:aws:secretsmanager:eu-west-1:482311061893:secret:vfi/inthub/platform/dev/svc-auth-hmac-SvHJuN"
